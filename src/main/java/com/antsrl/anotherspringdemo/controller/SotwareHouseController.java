@@ -17,8 +17,9 @@ public class SotwareHouseController {
 
     @GetMapping(value = "/all")
     public List<SoftwareHouse> getALlSoftwareHouse2() {
-        List<SoftwareHouse> shList = softwareHouseRepository.findAll();
-        return shList;
+        System.out.println("");
+        return softwareHouseRepository.findAll();
+
     }
 
     @PostMapping("/add")
