@@ -23,7 +23,7 @@ public class SotwareHouseController {
     }
 
     @PostMapping("/add")
-    public SoftwareHouse addSoftwareHouse(@RequestBody SoftwareHouse softwareHouse){
+    public SoftwareHouse addSoftwareHousePippo(@RequestBody SoftwareHouse softwareHouse){
         return softwareHouseRepository.save(softwareHouse);
     }
 }
