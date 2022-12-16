@@ -16,13 +16,13 @@ public class SotwareHouseController {
     private SoftwareHouseRepository softwareHouseRepository;
 
     @GetMapping(value = "/all")
-    public List<SoftwareHouse> getALlSoftwareHouse() {
+    public List<SoftwareHouse> getALlSoftwareHouse2() {
         List<SoftwareHouse> shList = softwareHouseRepository.findAll();
         return shList;
     }
 
     @PostMapping("/add")
-    public SoftwareHouse addSoftwareHouse(@RequestBody SoftwareHouse softwareHouse){
+    public SoftwareHouse addSoftwareHousePippo(@RequestBody SoftwareHouse softwareHouse){
         return softwareHouseRepository.save(softwareHouse);
     }
 }
