@@ -2,7 +2,7 @@ package com.antsrl.anotherspringdemo.controller;
 
 import com.antsrl.anotherspringdemo.model.Videogame;
 import com.antsrl.anotherspringdemo.repository.VideogameRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.antsrl.anotherspringdemo.service.VideogameService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,10 +11,12 @@ import java.util.List;
 @RequestMapping(value = "/videogame")
 public class VideogameController {
 
+    private final VideogameService videogameService;
+
     private final VideogameRepository videogameRepository;
 
-    @Autowired
-    public VideogameController(VideogameRepository videogameRepository) {
+    public VideogameController(VideogameService videogameService, VideogameRepository videogameRepository) {
+        this.videogameService = videogameService;
         this.videogameRepository = videogameRepository;
     }
 
@@ -30,9 +32,9 @@ public class VideogameController {
         return videogame;
     }
 
-    @PostMapping("/add")
-    public Videogame addVideogame(@RequestBody Videogame videogame){
-        return videogameRepository.save(videogame);
+    @PostMapping(value = "/add")
+    public Videogame addVideogame(@RequestBody Videogame videogame) {
+        return videogameService.addVideogame(videogame);
     }
 
 }
